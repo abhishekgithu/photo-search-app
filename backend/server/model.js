@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-import {photoSchema} from './photoschema';
+const photoSchema = require("./photos.schema");
 
 const Photo = mongoose.model("Photo", photoSchema);
 

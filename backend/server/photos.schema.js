@@ -1,9 +1,9 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const photoSchema = new Schema({
-id:number,
-url:string
+id:Number,
+url:String,
 });
 
-module.exports(photoSchema)
+module.exports = photoSchema;

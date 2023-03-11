@@ -1,13 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const Photo = require("./model");
 
 const router = express.Router();
-const photoSchema = new mongoose.Schema({id:number,url:string})
-const Photo = mongoose.model("Photos", photoSchema);
 
 router.post("/api/photos", (req, res) => {
   const { id, url } = req.body;
-  const newPhoto = new photoSchema({
+  const newPhoto = new Photo({
     id,
     url
   });

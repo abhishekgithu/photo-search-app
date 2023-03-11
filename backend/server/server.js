@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const photoRoutes = require("./routes");
-const photoSchema = new mongoose.Schema({id:number,url:string})
+const photoSchema = new mongoose.Schema({id:Number,url:String})
 
 const Photo = mongoose.model("Photos", photoSchema);
 
@@ -48,3 +48,15 @@ app.get("/api/photos", (req, res) => {
 app.listen(5001, () => {
   console.log("Server is listening on port 5001");
 });
+
+
+
+
+// Photo.deleteMany({}, (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log('All documents deleted successfully');
+//     mongoose.connection.close();
+//   }
+// });
