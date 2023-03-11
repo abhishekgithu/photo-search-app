@@ -50,9 +50,11 @@ app.get("/api/photos", (req, res) => {
   });
 });
 
+const port =  5001;
+app.listen(port, () => {
 
-app.listen(5001, () => {
-  console.log("Server is listening on port 5001");
+  console.log(`Server is listening on ${port}`);
+  console.log("mongoDB is connected");
 });
 
 // Photo.deleteMany({}, (err) => {
