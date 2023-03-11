@@ -5,10 +5,10 @@ const Photo = require("./model");
 const router = express.Router();
 
 router.post("/api/photos", (req, res) => {
-  const { id, url } = req.body;
+  const { id, url} = req.body;
   const newPhoto = new Photo({
     id,
-    url
+    url,
   });
   newPhoto.save((err) => {
     if (err) {

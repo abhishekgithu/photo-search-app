@@ -23,7 +23,6 @@ function App() {
       .get("http://localhost:5001/api/photos")
       .then((res) => {
         console.log(res.data);
-        // setResult(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -93,17 +92,21 @@ function App() {
                           (p) => p.id === photo.id
                         );
                         photos[index].selected = !photos[index].selected;
-                        setSelectedPhotos(
-                          photos.filter((p) => p.selected)
-                        );
+                        setSelectedPhotos(photos.filter((p) => p.selected));
                         setResult(photos);
                       }}
-                    />
-                    <label className="form-check-label">Select</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    />&nbsp;
+                    <label className="form-check-label">select</label>{" "}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {/* <br /> */}
                     <button
                       type="button"
-                      className="btn btn-primary" style ={{padding:"1px",marginBottom:"1px",textAlign:"center"}}
+                      className="btn btn-primary"
+                      style={{
+                        padding: "1px",
+                        marginBottom: "1px",
+                        textAlign: "center",
+                      }}
                       disabled={!photo.selected}
                       onClick={() => {
                         const photosWithUrl = selectedPhotos.map((photo) => {
@@ -111,10 +114,10 @@ function App() {
                             id: photo.id,
                             url: photo.url,
                             selected: photo.selected,
-                          }
+                          };
                         });
                         addPhoto(photosWithUrl);
-                      }}  
+                      }}
                     >
                       Save
                     </button>
