@@ -47,14 +47,32 @@ function App() {
   };
 
   React.useEffect(() => {
-    getPhotos();
+    axios
+      .get(
+        `https://api.unsplash.com/search/photos?page=1&query=nature&per_page=10&client_id=hq9Bei2bKr-GBZXix2eLN02tgl_Aysgrtuwx7SJBhzE`
+      )
+      .then((response) => {
+        const photos = response.data.results.map((photo) => {
+          return {
+            id: photo.id,
+            url: photo.urls.small,
+            selected: false,
+          };
+        });
+        setResult(photos);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
+
 
   return (
     <>
       <div>
         <div className="container text-center my-5">
           <input
+            placeholder="Enter any keyword to search /  example: cat"
             type="text"
             className="form-control"
             value={photo}
@@ -95,7 +113,8 @@ function App() {
                         setSelectedPhotos(photos.filter((p) => p.selected));
                         setResult(photos);
                       }}
-                    />&nbsp;
+                    />
+                    &nbsp;
                     <label className="form-check-label">select</label>{" "}
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     {/* <br /> */}

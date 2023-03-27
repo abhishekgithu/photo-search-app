@@ -8,3 +8,7 @@ body{
     justify-content: center;
     
 }
+.container text-center my-5 .input{
+    text-align: center;
+    /* display: contents; */
+}
